@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :created_at, null: false
       t.timestamp :updated_at, null: false
       t.boolean :delete_flg, null: false
-      t.string :email              null: false, default: ""
+      t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable

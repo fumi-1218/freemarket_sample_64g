@@ -10,11 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_100647) do
+ActiveRecord::Schema.define(version: 2019_12_04_083018) do
 
-  create_table "indices", force: :cascade do |t|
+  create_table "indices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "fast_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "fast_name_kana", null: false
+    t.string "birth_year", null: false
+    t.string "birth_month", null: false
+    t.string "birth_day", null: false
+    t.string "nickname", null: false
+    t.text "profile"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "delete_flg", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["fast_name"], name: "index_users_on_fast_name"
+    t.index ["fast_name_kana"], name: "index_users_on_fast_name_kana"
+    t.index ["last_name"], name: "index_users_on_last_name"
+    t.index ["last_name_kana"], name: "index_users_on_last_name_kana"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
