@@ -10,12 +10,12 @@
           %div#btn1
             メールアドレスで登録する
       .select-content__contenter__btn2
-        =link_to "#",class: "facebook_btn" do
+        = link_to user_facebook_omniauth_authorize_path, method: :post,class: "facebook_btn" do
           %i.fab.fa-facebook-square
           %div#btn2
             Facebookで登録する
       .select-content__contenter__btn3
-        =link_to "#",class: "google_btn" do
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post,class: "google_btn" do
           = image_tag "google-search.svg", class: "google_svg"
           %div#btn3
             googleで登録する

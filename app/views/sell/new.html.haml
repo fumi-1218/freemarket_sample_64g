@@ -12,7 +12,7 @@
             %p 最大10枚までアップロードできます
             #image-box-1
               .item-num-0#image-box__container
-                = f.fields_for :images, placeholder: "" do |image|
+                = f.fields_for :images do |image|
                   .input-area
                     = image.file_field :image,class: "sell-drop__box__file", type: 'file', id:"img-file", name: "images[image][]"
                     %label{for: "img-file"}
@@ -40,7 +40,7 @@
               カテゴリー
               %span.require 必須
             = f.fields_for :item_categories do |c|
-              = c.select :category_id, {レディース: 1, メンズ: 2, ベビー・キッズ: "", インテリア・住まい・小物: "", 本・音楽・ゲーム: "", おもちゃ・ホビー・グッズ: "", コスメ・香水・美容: "", 家電・スマホ・カメラ: "", スポーツ・レジャー: "", ハンドメイド: "", チケット: "", 自動車・オートバイ: "", その他: ""}
+              = c.select :category_id,{レディース: 1, メンズ: 2, ベビー・キッズ: "", インテリア・住まい・小物: "", 本・音楽・ゲーム: "", おもちゃ・ホビー・グッズ: "", コスメ・香水・美容: "", 家電・スマホ・カメラ: "", スポーツ・レジャー: "", ハンドメイド: "", チケット: "", 自動車・オートバイ: "", その他: ""},{class: "select_default"}
           .sell-form-group
             .sell__label
               ブランド

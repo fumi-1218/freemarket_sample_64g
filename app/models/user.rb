@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :sns_credentials, dependent: :destroy
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   belongs_to_active_hash :birthyear 
   belongs_to_active_hash :birthmonth
   belongs_to_active_hash :birthday
@@ -19,6 +23,18 @@ class User < ApplicationRecord
   has_many :seling_items, -> { where("buyer_id is NULL") }, foreign_key: "seler_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seler_id", class_name: "Item"
 
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+    if user.persisted?
+      sns.user = user
+      sns.save
+    end
+    user
+  end
 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PASSWORD = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{6,128}\z/i
