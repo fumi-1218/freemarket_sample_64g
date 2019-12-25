@@ -1,0 +1,264 @@
+.sell{
+  background-color: whitesmoke;
+  &__head{
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+    margin-bottom: 24px;
+  }
+  &__body{
+    background-color: #FFF;
+    vertical-align: baseline;
+    width: 700px;
+    margin: 0 auto;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    font: inherit;
+  }
+  &__label{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+    color: #000;
+  }
+  box-sizing: border-box;
+  &__title{
+    padding: 40px;
+  }
+  &__file{
+    padding: 40px;
+    border-bottom: 1px solid #efefef;
+    &__text{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+    }
+  }
+  &__price{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__fee{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  &__exhibit{
+    padding-left: 120px;
+  }
+  &__back{
+    margin: 24px 0;
+    padding-left: 250px;
+  }
+}
+
+.require{
+  margin-left: 8px;
+  font-size: 12px;
+  padding: 1px 4px 0;
+  background-color: #ff0211;
+  color: #fff;
+  border-radius: 2px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+.sell-drop{
+  &__box{
+    align-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+    height: 150px;
+    display: block;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    transition: all 0.5s ease-out 0s;
+    text-align: center;
+    &__file{
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  
+    &__text{
+      font-size: 12px;
+      line-height: 1.4em;
+    }
+  }
+  &__camera{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+  }
+}
+.sell-upload-drop-file{
+  display: none;
+  -webkit-appearance: initial;
+  background-color: initial;
+  cursor: default;
+  align-items: baseline;
+  color: inherit;
+  text-align: start !important;
+  padding: initial;
+  border: initial;
+}
+.select_default, #item_categories_category, #item_status, #item_burden, #item_region, #item_date, #item_send_method{
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0 56px 0 16px;
+  width: 100%;
+  max-width: 100%;
+}
+.sell-form-group{
+  margin-top: 32px;
+}
+#item_detail{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  margin: 0;
+  outline: none;
+  padding: 13px 16px;
+  resize: vertical;
+  vertical-align: middle;
+  width: 100%;
+}
+.sell-btn{
+  margin-bottom: 24px;
+  font-size: 17px;
+  min-height: 48px;
+  padding: 0 24px;
+  width: 100%;
+  &__red{
+    width: 70%;
+    height: 25px;
+    background-color: #ea352d;
+    color: #fff;
+    min-height: 48px;
+
+  }
+  &__grey{
+    text-decoration: none;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    margin-bottom: 24px;
+    font-size: 17px;
+    min-height: 48px;
+    padding: 0 24px;
+    width: 45%;
+  
+  }
+}
+.sell-text{
+  color: #000;
+  font-size: 12px;
+}
+.sell-right.sell-price-input{
+  display: flex;
+}
+.sell-yen{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#item_description{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.input-area{
+  align-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+  height: 150px;
+  display: block;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  transition: all 0.5s ease-out 0s;
+  text-align: center;
+
+}
+
+
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 491px;
+}
+.item-num-2{
+  width: 363px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 106px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
+}
+
+#image-box-1{
+  display: flex;
+}

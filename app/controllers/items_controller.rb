@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-
   before_action :set_item, only: [:index, :show, :edit, :destroy, :buyscreen, :buyscreenitem]
+
   def index
     @items = Item.find(set_item[:id]).limit(10).order('created_at DESC')
     @images = Image.find(set_item[:id])
@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
     @item = Item.find(set_item[:id])
     @item.update( buyer_id: current_user.id)
   end
+
+  def edit
+    @image = @item.images.build
+  end
+
   def show
     @category = Category.find(params[:id])
     @images = Image.where(item_id:@item.id)
@@ -15,6 +20,7 @@ class ItemsController < ApplicationController
     @brand = Brand.find(params[:id])
     @user = User.find(@item.seler_id)
   end
+
   def buyscreen
     @images = Image.where(item_id:@item.id)
     @image = @images[0]
@@ -38,10 +44,13 @@ class ItemsController < ApplicationController
   def buyscreenitem
 
   end
-  def edit
-    @item = Item.find(1)
-    
+
+  def update
+    if @item.seler_id == current_user.id && @item.update
+      chenge_item_items_path
+    end
   end
+
   def destroy
     if @item.user_id == current_user.id && @item.destroy
       redirect_to mypage_index_path
@@ -57,5 +66,19 @@ class ItemsController < ApplicationController
   def image_params
     @image = Image.find(params[:id])
   end
+
+  def chenge_item
+    @item = Item.find(params[:id])
+    @images = @item.images
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name,:price,:description,:status,:region,:burden,:date,:send_method,images_attributes: [:id,:image])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
-  
+

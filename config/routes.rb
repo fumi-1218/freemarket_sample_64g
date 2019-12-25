@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root to: 'index#index'
 
   devise_for :users,
@@ -33,15 +34,23 @@ Rails.application.routes.draw do
   resources :mypage, only: [:index] do
     get "profile"
   end
+
+  resources :items, only: [:index,:show,:edit,:update,:destroy] do
+    collection do
+      get 'chenge_item'
+    end
+  end
+
   resources :logout, only: [:index]
 
   resources :sell, only: [:index,:new, :create, :destroy]
+
   resources :items, only: [:index,:show,:edit,:destroy] do
     member do
       get 'buyscreen'
       post 'buyscreenitem'
     end
-  end
+
   resources :profile, only: [:index]
   resources :card, only: [:index] do
     collection do
