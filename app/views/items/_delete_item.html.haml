@@ -65,13 +65,12 @@
     %span.itembuy-content__tax (税込)
     %span.itembuy-content__taxfee
       送料込み
-
   .itembuy-detail
     %p.itembuy-detail__coments
-      
+      = @item.description
 .itembuy-content__button
   .itembuy-content__push
-    = link_to '/', class:"item-edit" do
+    = link_to edit_item_path(1), class:"item-edit" do
       商品の編集
     %p.itembuy-content__Separator
       or

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
   root to: 'index#index'
-
   devise_for :users,
   controllers: {
     sessions: 'users/sessions'
@@ -9,7 +7,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
     resources :signup do
     collection do
       get 'step1'
@@ -19,7 +16,6 @@ Rails.application.routes.draw do
       get 'done' # 登録完了後のページ
     end
   end
-  
   resources :card, only: [:index, :new, :show, :delete] do
     collection do
       post 'show', to: 'card#show'
@@ -27,14 +23,17 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-
   resources :users, only: [:index,:show,:new, :edit]
 
   resources :mypage, only: [:index] do
     get "profile"
   end
+  resources :items, only: [:index,:show,:edit,:update,:destroy] do
+    collection do
+      get 'chenge_item'
+    end
+  end
   resources :logout, only: [:index]
-
   resources :sell, only: [:index,:new, :create, :destroy]
   resources :items, only: [:index,:show,:edit,:destroy]
   resources :profile, only: [:index]
