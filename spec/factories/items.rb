@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    send_method { "メルカリ" }
+    send_method { "フリマ" }
     name {"book"}
     description {"コーディングの本です"}
     price { 9999999 }
