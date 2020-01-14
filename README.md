@@ -16,6 +16,7 @@
 |updated_at|timestamp|null: false|
 |delete_flg|boolean|null: false|
 |image|string||
+
 ### Association
 - has_many :items, dependent: :destroy
 - has_many :comments, dependent: :destroy
@@ -77,6 +78,7 @@
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string||
+
 ### Association
 - has_many :items, through: items_categorys
 
@@ -208,4 +210,3 @@
 
 ### Association
 - belongs_to :user
-i
