@@ -1,9 +1,15 @@
+.html{
+  height: 100%;
+}
+
 .single-footer  {
   background: whitesmoke;
-  height: 220px;
+  height: 100vh;
   text-align: center;
   margin: 0 auto;
   width: 100vw;
+  position:absolute;
+
   &__content {
     font-size: 12px;
     padding-top: 40px;
@@ -21,9 +27,16 @@
   }
   &__image {
     padding-top: 40px;
+    margin: 0 auto;
   }
   &__copyright {
-    font-size: 13px
+    background-color: rgb(23,157,122);
+    color: #fff;
+    font-size: 12px;
+    line-height: 60px;
+    margin-top: 36px;
+    margin-bottom: 0;
+
   }
   .content {
     color: #333;

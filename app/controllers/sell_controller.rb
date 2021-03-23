@@ -5,7 +5,7 @@ class SellController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @item.item_categories.build
+    # @item.item_categories.build
     @item.brands.build
   end
 
@@ -20,6 +20,11 @@ class SellController < ApplicationController
     end
   end
 
+  def finish
+    
+  end
+
+
   private
   def item_params
     params.require(:item).permit(
@@ -30,10 +35,11 @@ class SellController < ApplicationController
       :status,
       :burden,
       :send_method,
-      :region,
-      item_categories_attributes: [:category_id],
+      # :region,
+      :category,
       brands_attributes: [:name],
-      images_attributes: [:image]).merge(seler_id: current_user.id)
+      images_attributes: [:image])
+      # .merge(seler_id: current_user.id)
   end
   def set_params
     @item = Item.find(params[:id])

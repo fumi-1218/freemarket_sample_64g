@@ -1,20 +1,20 @@
 .main-category
-  %h2.main-category-top 人気のカテゴリー
-  .main-category-bottom
-    %ul.category-items
-      %li.category-item-btn
-        %a.category-item-name レディース
-      %li.category-item-btn
-        %a.category-item-name メンズ
-      %li.category-item-btn
-        %a.category-item-name 家電・スマホ・カメラ
-      %li.category-item-btn
-        %a.category-item-name おもちゃ・ホビー・グッズ
+  %h2.main-category-top 査定依頼品一覧
+  -# .main-category-bottom
+  -#   %ul.category-items
+  -#     %li.category-item-btn
+  -#       %a.category-item-name レディース
+  -#     %li.category-item-btn
+  -#       %a.category-item-name メンズ
+  -#     %li.category-item-btn
+  -#       %a.category-item-name 家電・スマホ・カメラ
+  -#     %li.category-item-btn
+  -#       %a.category-item-name おもちゃ・ホビー・グッズ
 .main-items
   .main-items-show
-    .main-items-show-header
-      %h3.main-items-show-header-left 新着アイテム
-      = link_to 'もっと見る >', '#', class: 'main-items-show-header-right'
+    -# .main-items-show-header
+    -#   %h3.main-items-show-header-left 新着アイテム
+    -#   = link_to 'もっと見る >', '#', class: 'main-items-show-header-right'
     .main-items-show-bottom
       .main-items-bottom-list
         %ul.list-items
@@ -25,14 +25,19 @@
                   %figure.main-items-all-figure
                     .img-main-item1
                       = image_tag item.images[0].image.url ,class: "img-main-item",size:"188x188"
-                      -if item.buyer_id.present?
-                        .items-box_photo__all
-                          .items-box_photo__sold
-                            .items-box_photo__sold__inner
-                              SOLD
-                      - else
+                      -# -if item.buyer_id.present?
+                      -#   .items-box_photo__all
+                      -#     .items-box_photo__sold
+                      -#       .items-box_photo__sold__inner
+                      -#         SOLD
+                      -# - else
                       %span.aria-label
                         = "¥#{item.price}"
                     %figcaption.main-items-all-figure-i
                       %span.main-items-all-span
                         = item.name
+                    %figcaption.main-items-all-figure-i
+                      %span.main-items-all-span
+                        出品者：
+                        = item.status
+                        様

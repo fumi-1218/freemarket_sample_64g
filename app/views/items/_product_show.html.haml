@@ -7,10 +7,10 @@
     %table.itembuy-content__table
       %tbody
         %tr
-          %th.thcategory 出品者
-          %td.tdcategory
-            = link_to root_path , class:'tdcategory-name' do
-              = @user.nickname
+          -# %th.thcategory 出品者
+          -# %td.tdcategory
+          -#   = link_to root_path , class:'tdcategory-name' do
+          -#     = @user.nickname
             %div
               .itembuy-user-evaluation-smile
                 %i.fa.fa-smile-o
@@ -22,152 +22,154 @@
                 %i.fa.fa-frown-o
                 %span.evaluation-icon 999
         %tr
-          %th.thcategory カテゴリー
+          %th.thcategory 氏名
           %td.tdcategory
-            = link_to  root_path ,class: "link_color"do
-              = @category.name
+            = @item.status
         %tr
-          %th.thcategory  ブランド
+          %th.thcategory  住所
           %td.tdcategory
             = link_to root_path,class: "link_color" do
               = @brand.name
         %tr
-          %th.thcategory 商品の状態
-          %td.tdcategory
-            = @item.status
-        %tr
-          %th.thcategory 配送料の負担
+          %th.thcategory 電話番号
           %td.tdcategory
             =@item.burden
         %tr
-          %th.thcategory 配送の方法
-          %td.tdcategory
-            = @item.send_method
-        %tr
-          %th.thcategory 配送元地域
-          %td.tdcategory
-            = link_to root_path ,class: "link_color"do
-              = @item.region
-        %tr
-          %th.thcategory 発送日の目安
+          %th.thcategory メールアドレス
           %td.tdcategory
             = @item.date
+        %tr
+          %th.thcategory 連絡方法
+          %td.tdcategory
+            = @item.send_method
+        -# %tr
+        -#   %th.thcategory 
+        -#   %td.tdcategory
+        -#     = link_to root_path ,class: "link_color"do
+        -#       = @item.region
+        %tr
+          %th.thcategory 査定品カテゴリー
+          %td.tdcategory
+            = link_to  root_path ,class: "link_color"do
+              = @item.category
   .itembuy-content__price
     %span.itembuy-content__bold
-      ¥
+      希望額：¥
       = @item.price
-      
-    %span.itembuy-content__tax (税込)
-    %span.itembuy-content__taxfee
-      送料込み
-    - if @item.buyer_id.present? 
-      .itembuy-price-box-sold
-        売り切れました
-    - else
+    -# - if @item.buyer_id.present? 
+    -#   .itembuy-price-box-sold
+    -#     売り切れました
+    -# - else
       .itembuy-price-box
         = link_to buyscreen_buy_path ,class: 'itembuy-price-box' do
           購入画面に進む
   .itembuy-detail
     %p.itembuy-detail__coments
       = @item.description
+  .item__buck
+    =link_to "/", class: "buck__btn" do
+      一覧に戻る
+
+.item__footer
+
       
-  .itembuy-button
-    .itembuy-button__left
-      %button{ type: 'button', name: 'iine', class: 'i fa fa-heart' }
-        %span.itembuy-button-like いいね! 999
-      = link_to root_path do
-        %i.fa.fa-flag
-          %span 不適切な商品の報告
-    .itembuy-button__right
-      = link_to root_path ,class: "link_color"do
-        %i.fa.fa-shopping-bag
-          %span あんしん・あんぜんへの取り組み
-.itembuy-content-box
-  .itembuy-detail-message
-    .itembuy-content__comment
-      %form.itembuy-message__form
-        %p.form-messeage-coments 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.form-messeage-textarea
-        %button.form-messeage-button
-          %span コメントする
-%ul.itembuy-nav
-  %li.itembuy-nav__left
-    = link_to root_path,class: "link_color" do
-      %i.fa.fa-chevron-left
-      左ブランド
-  %li.itembuy-nav__right
-    = link_to root_path,class: "link_color" do
-      右ブランド
-      %i.fa.fa-chevron-right
-.itembuy-media-box
-  %ul.itembuy-media-box__list
-    %li.itembuy-media-boxli
-      = link_to root_path do
-        %i.fa.fa-facebook-square
-    %li.itembuy-media-boxli
-      = link_to root_path do
-        %i.fa.fa-twitter-square
-    %li.itembuy-media-boxli
-      = link_to root_path do
-        %i.fa.fa-pinterest-square
-.itembuy-user-profile
-  %h2.itembuy-user-profile__head
-    = link_to root_path do
-      g64さんのその他の出品
-  .itembuy-user-profile__content
-    .itembuy-user-profile__box
-      %section.itembuy-user-profile__items
-        = link_to root_path do
-          = image_tag "testimage.jpg", size: '220x220'
-          .itembuy-user-profile__body
-            %h3.itembuy-user-profile__name
-              g64
-            .itembuy-user-profile__num
-              .itembuy-user-profile__price
-                1000
-              .itembuy-user-profile__btn
-                %i.fa.fa-heart-o.showheart
-                .itembuy-user-profile__like
-                  1
-    .itembuy-user-profile__box
-      %section.itembuy-user-profile__items
-        = link_to root_path do
-          = image_tag "testimage.jpg", size: '220x220'
-          .itembuy-user-profile__body
-            %h3.itembuy-user-profile__name
-              g64
-            .itembuy-user-profile__num
-              .itembuy-user-profile__price
-                1000
-              .itembuy-user-profile__btn
-                %i.fa.fa-heart-o.showheart
-                .itembuy-user-profile__like
-                  1
-    .itembuy-user-profile__box
-      %section.itembuy-user-profile__items
-        = link_to root_path do
-          = image_tag "testimage.jpg", size: '220x220'
-          .itembuy-user-profile__body
-            %h3.itembuy-user-profile__name
-              g64
-            .itembuy-user-profile__num
-              .itembuy-user-profile__price
-                1000
-              .itembuy-user-profile__btn
-                %i.fa.fa-heart-o.showheart
-                .itembuy-user-profile__like
-                  1
-    .itembuy-user-profile__box
-      %section.itembuy-user-profile__items
-        = link_to root_path do
-          = image_tag "testimage.jpg", size: '220x220'
-          .itembuy-user-profile__body
-            %h3.itembuy-user-profile__name
-              g64
-            .itembuy-user-profile__num
-              .itembuy-user-profile__price
-                1000
-              .itembuy-user-profile__btn
-                %i.fa.fa-heart-o.showheart
-                .itembuy-user-profile__like
-                  1
+-#   .itembuy-button
+-#     .itembuy-button__left
+-#       %button{ type: 'button', name: 'iine', class: 'i fa fa-heart' }
+-#         %span.itembuy-button-like いいね! 999
+-#       = link_to root_path do
+-#         %i.fa.fa-flag
+-#           %span 不適切な商品の報告
+-#     .itembuy-button__right
+-#       = link_to root_path ,class: "link_color"do
+-#         %i.fa.fa-shopping-bag
+-#           %span あんしん・あんぜんへの取り組み
+-# .itembuy-content-box
+-#   .itembuy-detail-message
+-#     .itembuy-content__comment
+-#       %form.itembuy-message__form
+-#         %p.form-messeage-coments 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+-#         %textarea.form-messeage-textarea
+-#         %button.form-messeage-button
+-#           %span コメントする
+-# %ul.itembuy-nav
+-#   %li.itembuy-nav__left
+-#     = link_to root_path,class: "link_color" do
+-#       %i.fa.fa-chevron-left
+-#       左ブランド
+-#   %li.itembuy-nav__right
+-#     = link_to root_path,class: "link_color" do
+-#       右ブランド
+-#       %i.fa.fa-chevron-right
+-# .itembuy-media-box
+-#   %ul.itembuy-media-box__list
+-#     %li.itembuy-media-boxli
+-#       = link_to root_path do
+-#         %i.fa.fa-facebook-square
+-#     %li.itembuy-media-boxli
+-#       = link_to root_path do
+-#         %i.fa.fa-twitter-square
+-#     %li.itembuy-media-boxli
+-#       = link_to root_path do
+-#         %i.fa.fa-pinterest-square
+-# .itembuy-user-profile
+-#   %h2.itembuy-user-profile__head
+-#     = link_to root_path do
+-#       g64さんのその他の出品
+-#   .itembuy-user-profile__content
+-#     .itembuy-user-profile__box
+-#       %section.itembuy-user-profile__items
+-#         = link_to root_path do
+-#           = image_tag "testimage.jpg", size: '220x220'
+-#           .itembuy-user-profile__body
+-#             %h3.itembuy-user-profile__name
+-#               g64
+-#             .itembuy-user-profile__num
+-#               .itembuy-user-profile__price
+-#                 1000
+-#               .itembuy-user-profile__btn
+-#                 %i.fa.fa-heart-o.showheart
+-#                 .itembuy-user-profile__like
+-#                   1
+-#     .itembuy-user-profile__box
+-#       %section.itembuy-user-profile__items
+-#         = link_to root_path do
+-#           = image_tag "testimage.jpg", size: '220x220'
+-#           .itembuy-user-profile__body
+-#             %h3.itembuy-user-profile__name
+-#               g64
+-#             .itembuy-user-profile__num
+-#               .itembuy-user-profile__price
+-#                 1000
+-#               .itembuy-user-profile__btn
+-#                 %i.fa.fa-heart-o.showheart
+-#                 .itembuy-user-profile__like
+-#                   1
+-#     .itembuy-user-profile__box
+-#       %section.itembuy-user-profile__items
+-#         = link_to root_path do
+-#           = image_tag "testimage.jpg", size: '220x220'
+-#           .itembuy-user-profile__body
+-#             %h3.itembuy-user-profile__name
+-#               g64
+-#             .itembuy-user-profile__num
+-#               .itembuy-user-profile__price
+-#                 1000
+-#               .itembuy-user-profile__btn
+-#                 %i.fa.fa-heart-o.showheart
+-#                 .itembuy-user-profile__like
+-#                   1
+-#     .itembuy-user-profile__box
+-#       %section.itembuy-user-profile__items
+-#         = link_to root_path do
+-#           = image_tag "testimage.jpg", size: '220x220'
+-#           .itembuy-user-profile__body
+-#             %h3.itembuy-user-profile__name
+-#               g64
+-#             .itembuy-user-profile__num
+-#               .itembuy-user-profile__price
+-#                 1000
+-#               .itembuy-user-profile__btn
+-#                 %i.fa.fa-heart-o.showheart
+-#                 .itembuy-user-profile__like
+-#                   1

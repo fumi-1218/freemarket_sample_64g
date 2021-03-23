@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:index, :show, :edit, :destroy, :buyscreen, :buyscreenitem]
   def index
     @items = Item.find(set_item[:id]).limit(10).order('created_at DESC')
-    @images = Image.find(set_item[:id])
+    @images = Image.where(item_id:@item.id)
     @image = Image.find(item_id: image_params)
     @item = Item.find(set_item[:id])
     @item.update( buyer_id: current_user.id)
@@ -17,11 +17,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    # @category = Category.find(params[:id])
+    # @images = Image.find_by(item_id:@item.id)
     @images = Image.where(item_id:@item.id)
     @image = @images
     @brand = Brand.find_by(item_id:@item.id)
-    @user = User.find(@item.seler_id)
+    # @user = User.find(@item.seler_id)
   end
 
   def buyscreen
@@ -98,8 +99,9 @@ class ItemsController < ApplicationController
       :burden,
       :send_method,
       :region,
-      item_categories_attributes: [:category_id],
-      brands_attributes: [:name]).merge(seler_id: current_user.id)
+      :category,
+      brands_attributes: [:name])
+      # .merge(seler_id: current_user.id)
   end
 
   def update_item_params

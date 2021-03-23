@@ -4,11 +4,11 @@
   padding: 24px 40px 40px;
   background: #fff;
   margin: 40px auto 0;
-  width: 620px;
+  width: 100%;
   font-size: 14px;
   &__clearfix{
     margin-top: 16px;
-    height: 400px;
+    height: 100%;
     content: "";
     display: block;
     clear: both;
@@ -24,13 +24,14 @@
     min-width: 300px;
     max-width: 300px;
     min-height: 375px;
-    float: left;
+    // float: left;
+    margin: 0 auto;
   }
   &__auter{
     height: 300px;
     width: 300px;
     z-index: 0;
-    overflow: hidden;  
+    overflow: hidden;
   }
   &__owl-stage-outer-main{
     position: relative;
@@ -44,8 +45,8 @@
   }
   
   &__table{
-    max-width: 300px;
-    height: 420px;
+    max-width: 100%;
+    height: 80%;
     margin: 0 auto;
     width: 100%;
     border-collapse: collapse;
@@ -348,4 +349,24 @@ a {
 .image_now{
   width: 100px;
   height:100px;
+}
+
+.item__footer{
+  height: 150px;
+  background-color: whitesmoke;
+}
+.item__buck{
+  width: 100%;
+  height: 100px;
+}
+.buck__btn{
+  margin: 0 40%;
+  text-align: center;
+  font-size: 20px;
+  width: 70%;
+  height: 250px;
+  background-color: #3399FF;
+  color: #fff;
+  // min-height: 48px;
+
 }
