@@ -1,14 +1,10 @@
-.mypage-header
-  = render "index/header"
-  - breadcrumb :mypage
-  = render "index/bread-crumbs"
-  .mypage
-    .mypage__left
-      = render "mypage/mypage_sidebar"
-    .mypage__right
-      = render "mypage/profile"
-.mypage-footer
-  = render "index/download"
-  = render "index/footer"
-  = render "index/exhibit"
-git init
+.sell__finish
+  .sel__header
+    = render "shared/user_header"
+  .sell__mes
+    ご依頼ありがとうございます
+    %p 3営業日以内にご連絡差し上げます
+
+  .sell__home
+    =link_to "https://ecopartners.co.jp/",class: "sell-btn__red" do
+      トップページへ戻る
