@@ -1,7 +1,6 @@
 server '35.72.202.67', user: 'ec2-user', roles: %w{app db web}
 
-set :ssh_options, keys: %{/Users/sasakiyoshifumi/.ssh/ecopartnars.pem}, auth_methods: %w{publickey}
-
+set :ssh_options, keys: '/Users/sasakiyoshifumi/.ssh/ecopartnars.pem'
 
 # server-based syntax
 # ======================
