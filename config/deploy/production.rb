@@ -1,5 +1,8 @@
 server '35.72.202.67', user: 'ec2-user', roles: %w{app db web}
 
+set :ssh_options, keys: %{/Users/sasakiyoshifumi/.ssh/ecopartnars.pem}, auth_methods: %w{publickey}
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
