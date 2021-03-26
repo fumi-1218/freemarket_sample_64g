@@ -51,5 +51,5 @@ production:
   <<: *default
   database: freemarket_sample_64g
   username: root
-  password: <OpzVyfEh8Qf
+  password: Redka397!
   socket: /var/lib/mysql/mysql.sock
